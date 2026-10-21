@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nebula Frontier MMO</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<canvas id="space"></canvas>
+<div id="auth" class="overlay"><div class="authbox"><div class="eyebrow">ONLINE SPACE COMBAT</div><h1>NEBULA <span>FRONTIER</span></h1><p class="muted">Ein eigenständiges Weltraum-MMO</p>
+<div class="tabs"><button id="loginTab" class="active">Login</button><button id="registerTab">Account erstellen</button></div>
+<label>Pilotname<input id="username" maxlength="18" autocomplete="username" placeholder="z. B. StarPilot"></label>
+<label>Passwort<input id="password" type="password" minlength="8" autocomplete="current-password" placeholder="Mindestens 8 Zeichen"></label>
+<label id="factionLabel" hidden>Firma<select id="faction"><option>Astra</option><option>Vortex</option><option>Helix</option></select></label>
+<button id="authGo" class="primary">Einloggen</button><div id="authMsg" class="msg"></div>
+<p class="tiny">Demo-Server: Accounts werden lokal in <code>data/players.json</code> gespeichert. Verwende kein Passwort, das du anderswo nutzt.</p></div></div>
+<div id="hud" hidden>
+<div class="brand panel">✦ NEBULA FRONTIER <small>ONLINE</small></div>
+<div class="stats panel"><div class="pilot"><span id="pilotName">PILOT</span><span id="factionTag">ASTRA</span></div>
+<div class="statrow"><span>HÜLLE</span><b id="hpText">100</b></div><div class="bar"><i id="hpBar" class="hp"></i></div>
+<div class="statrow"><span>SCHILD</span><b id="shieldText">80</b></div><div class="bar"><i id="shieldBar" class="shield"></i></div>
+<div class="statrow"><span>ERFAHRUNG</span><b id="xpText">0 XP</b></div><div class="bar"><i id="xpBar" class="xp"></i></div>
+<div class="economy">LEVEL <b id="level">1</b> <span>CREDITS</span> <b id="credits">300</b></div></div>
+<div class="righttop panel"><div class="eyebrow">SEKTOR-KOMMANDO</div><select id="mapSelect"><option value="frontier">Grenzgebiet · Lv 1</option><option value="asteroid">Asteroidengürtel · Lv 2</option><option value="nebula">Nebelmeer · Lv 4</option></select><div id="mapInfo">Patrouillen-Sektor</div><div class="miniwrap"><canvas id="minimap" width="180" height="110"></canvas></div></div>
+<div class="leftbottom panel"><div class="eyebrow">QUEST</div><b>Rogue-Drohnen beseitigen</b><p id="questText">Zerstöre 5 NPCs · 0/5</p><div class="bar"><i id="questBar" class="quest"></i></div><button id="claimQuest" class="small">Belohnung abholen</button><p class="tiny">Boss: Nebelmeer · Level 4+</p></div>
+<div class="bottom panel"><button data-action="repair" title="Reparatur (1)">✚<small>1</small></button><button data-action="shield" title="Schild-Impuls (2)">◇<small>2</small></button><button data-action="turbo" title="Turbo (3)">ϟ<small>3</small></button><button id="shopOpen" title="Hangar und Shop">▤<small>H</small></button><span class="weapon">WAFFE <b id="weaponName">PULS-LASER</b><br><small>MAUSKLICK / LEERTASTE</small></span></div>
+<div class="chat panel"><div id="chatLog"></div><form id="chatForm"><input id="chatInput" maxlength="180" placeholder="Nachricht schreiben…"><button>↗</button></form></div>
+<div class="online panel"><b>SEKTOR-PILOTEN</b><div id="onlineList">Verbindung wird hergestellt …</div></div>
+<div class="reticle" id="reticle"></div>
+<div id="notice"></div>
+</div>
+<div id="shop" class="overlay" hidden><div class="shopbox"><button class="close" id="shopClose">×</button><div class="eyebrow">HANGAR & TECH-LAB</div><h2>Flotte ausrüsten</h2><div id="shipList" class="shopgrid"></div><h3>Ausrüstung</h3><div class="upgrades">
+<button data-upgrade="damage">Waffen-Kalibrierung <span>150+ Credits</span></button><button data-upgrade="shield">Schildtechnik <span>150+ Credits</span></button><button data-upgrade="cannon">Schwere Kanone <span>500 Credits</span></button></div><p class="tiny">Upgrades und Käufe werden auf dem Server geprüft und im Spielstand gespeichert.</p></div></div>
+<script src="/client.js"></script></body></html>
