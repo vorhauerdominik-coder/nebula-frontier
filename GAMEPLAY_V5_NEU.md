@@ -1,0 +1,1 @@
+Nebula Frontier V5: Bis zu 8 kaufbare Drohnen. Preise: 200, 400, 600, 800, 1000, 1200, 1400, 1600 Credits; Gesamt 7200 Credits. Vorhandene Drohnen bleiben erhalten. Jede Drohne schießt serverseitig mit.

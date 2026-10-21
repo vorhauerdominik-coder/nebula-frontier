@@ -16,8 +16,12 @@ const SHIPS = {
   scout: { name: "Wespe", price: 0, hp: 100, shield: 80, speed: 245, damage: 12, color: "#63eaff" },
   interceptor: { name: "Phantom", price: 450, hp: 125, shield: 100, speed: 285, damage: 15, color: "#8dffb2" },
   destroyer: { name: "Titan", price: 1000, hp: 210, shield: 150, speed: 185, damage: 25, color: "#ffb45c" },
-  spectre: { name: "Spectre", price: 1700, hp: 145, shield: 210, speed: 235, damage: 20, color: "#c3a0ff" }
+  spectre: { name: "Spectre", price: 1700, hp: 145, shield: 210, speed: 235, damage: 20, color: "#c3a0ff" },
+  falcon: { name: "Falcon Mk-II", price: 2400, hp: 175, shield: 175, speed: 265, damage: 23, color: "#ffdc80" },
+  leviathan: { name: "Leviathan X", price: 4000, hp: 300, shield: 250, speed: 165, damage: 34, color: "#ff6caa" }
 };
+const MAX_DRONES = 8;
+const dronePrice = count => 200 * (count + 1);
 const MAPS = {
   frontier: { name: "Grenzgebiet", width: 2400, height: 1700, minLevel: 1, tint: "#07162d" },
   asteroid: { name: "Asteroidengürtel", width: 2800, height: 1900, minLevel: 2, tint: "#17152b" },
@@ -49,7 +53,7 @@ function verifyPassword(password, record) {
 function freshProfile(username, faction) {
   return {
     username, faction, credits: 300, xp: 0, level: 1, kills: 0,
-    ship: "scout", ownedShips: ["scout"], weapons: { pulse: 1, cannon: 0 },
+    ship: "scout", drones: 0, ownedShips: ["scout"], weapons: { pulse: 1, cannon: 0 },
     upgrades: { damage: 0, shield: 0 }, map: "frontier", x: 1200, y: 850,
     hp: 100, shield: 80, quest: { kills: 0, boss: false, claimed: false },
     createdAt: new Date().toISOString()
@@ -59,7 +63,7 @@ function cleanProfile(p) {
   const ship = SHIPS[p.ship] || SHIPS.scout;
   return {
     username: p.username, faction: p.faction, credits: p.credits, xp: p.xp, level: p.level,
-    kills: p.kills, ship: p.ship, ownedShips: p.ownedShips, weapons: p.weapons, upgrades: p.upgrades,
+    kills: p.kills, drones: Math.max(0,Math.min(MAX_DRONES,Number(p.drones)||0)), ship: p.ship, ownedShips: p.ownedShips, weapons: p.weapons, upgrades: p.upgrades,
     map: p.map, x: p.x, y: p.y, hp: Math.min(p.hp, ship.hp + p.upgrades.shield * 10),
     shield: Math.min(p.shield, ship.shield + p.upgrades.shield * 15), quest: p.quest
   };
@@ -71,7 +75,7 @@ function broadcast(data, except = null) {
 function onlineSnapshot(map) {
   return [...players.values()].filter(p => p.profile.map === map).map(p => ({
     id: p.id, username: p.profile.username, faction: p.profile.faction, ship: p.profile.ship,
-    x: p.profile.x, y: p.profile.y, hp: p.profile.hp, maxHp: SHIPS[p.profile.ship].hp, level: p.profile.level
+    x: p.profile.x, y: p.profile.y, drones: Math.max(0,Math.min(MAX_DRONES,Number(p.profile.drones)||0)), hp: p.profile.hp, maxHp: SHIPS[p.profile.ship].hp, level: p.profile.level
   }));
 }
 function sendState(ws) {
@@ -151,6 +155,17 @@ function onMessage(ws, msg) {
     const damage=(weapon==="cannon"?32:ship.damage)+p.upgrades.damage*4;
     const id="shot-"+nextId++;
     projectiles.set(id,{id,owner:session.id,username:p.username,faction:p.faction,map:p.map,x:p.x+Math.cos(angle)*24,y:p.y+Math.sin(angle)*24,vx:Math.cos(angle)*650,vy:Math.sin(angle)*650,life:1.2,damage,weapon});
+    // Purchased support drones only; one extra projectile per owned drone.
+    const count=Math.max(0,Math.min(MAX_DRONES,Number(p.drones)||0));
+    if(count && now-(session.lastDroneShot||0)>=1100){
+      session.lastDroneShot=now;
+      for(let i=0;i<count;i++){
+        const da=angle,orbit=now*.0016+i*Math.PI*2/count;
+        const ox=p.x+Math.cos(orbit)*39,oy=p.y+Math.sin(orbit)*25;
+        const did="drone-"+nextId++;
+        projectiles.set(did,{id:did,owner:session.id,username:p.username,faction:p.faction,map:p.map,x:ox+Math.cos(da)*22,y:oy+Math.sin(da)*22,vx:Math.cos(da)*690,vy:Math.sin(da)*690,life:1.1,damage:Math.max(2,Math.floor(damage*.16)),weapon:"drone"});
+      }
+    }
     return;
   }
   if (msg.type === "chat") {
@@ -172,6 +187,17 @@ function onMessage(ws, msg) {
     if(p.ownedShips.includes(id)) { if(p.ship===id)return sendError(ws,"Dieses Schiff ist bereits ausgerüstet."); }
     else { if(p.credits<def.price)return sendError(ws,"Nicht genug Credits.");p.credits-=def.price;p.ownedShips.push(id); }
     p.ship=id;p.hp=def.hp;p.shield=def.shield;saveDb();sendProfile(ws);send(ws,{type:"notice",text:`Schiff ${def.name} ausgerüstet.`});return;
+  }
+  if (msg.type === "buyDrone") {
+    const count = Math.max(0,Math.min(MAX_DRONES,Number(p.drones)||0));
+    if(count >= MAX_DRONES) return sendError(ws,"Alle acht Drohnenplätze sind bereits belegt.");
+    const price=dronePrice(count);
+    if(p.credits < price) return sendError(ws,`Die nächste Drohne kostet ${price} Credits.`);
+    p.credits-=price;p.drones=count+1;
+    saveDb();sendProfile(ws);
+    send(ws,{type:"notice",text:`Begleitdrohne ${p.drones}/${MAX_DRONES} gekauft! -${price} Credits`});
+    broadcast({type:"presence",map:p.map,players:onlineSnapshot(p.map)});
+    return;
   }
   if (msg.type === "buyUpgrade") {
     const kind=String(msg.upgrade||"");
