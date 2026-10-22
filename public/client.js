@@ -404,7 +404,7 @@ function drawDrones(x,y,color,clock,count=4,scale=1){
  }
 }
 function drawNebulaBackdrop(mapId){
- const palette=[["#075f75","#35266b","#17528a"],["#127b9d","#1e367c","#295875"],["#87623b","#1c5973","#72402e"],["#316f73","#204a84","#478e9a"],["#612b79","#0b5581","#8b3772"],["#7b305f","#245781","#6e4a9a"],["#9d422a","#69316f","#79543b"],["#612b79","#0b5581","#8b3772"]];const hues=palette[Math.max(0,Math.min(7,Number((mapId||"x1").slice(1))-1))];
+ const palette=[["#075f75","#35266b","#17528a"],["#127b9d","#1e367c","#295875"],["#87623b","#1c5973","#72402e"],["#316f73","#204a84","#478e9a"],["#612b79","#0b5581","#8b3772"],["#7b305f","#245781","#6e4a9a"],["#9d422a","#69316f","#79543b"],["#612b79","#0b5581","#8b3772"]];const mapNumber=Number(String(mapId||"x1").slice(1));const paletteIndex=Number.isFinite(mapNumber)?Math.max(0,Math.min(palette.length-1,mapNumber-1)):0;const hues=palette[paletteIndex];
  ctx.save();ctx.globalCompositeOperation="screen";
  for(let i=0;i<6;i++){
   const px=W*(.13+(i*0.271)%0.83)-WORLD.x*(.012+i*.002),py=H*(.15+(i*.173)%0.7)-WORLD.y*.012;
