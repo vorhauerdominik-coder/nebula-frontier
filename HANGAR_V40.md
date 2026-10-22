@@ -1,0 +1,2 @@
+# V40 – Klassischer Hangar
+Der Hangar wurde optisch an das vom Nutzer bereitgestellte DarkOrbit-Reloaded-Referenzbild angenähert: metallische Rahmen, dunkle Panels, klassische Konfigurationsleiste, 10-spaltige Ausrüstungsslots, Schiffsvorschau links, Inventar rechts und grüne Start-Schaltfläche. Bestehende V39-Spielmechanik bleibt unverändert. Kein pixelgenauer Nachbau; originale Bild-Assets aus der Vorlage wurden nicht kopiert. Mobile responsive Layouts enthalten.

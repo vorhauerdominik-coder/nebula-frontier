@@ -36,3 +36,139 @@
 .ship-preview{display:grid;place-items:center;margin:9px 0;height:72px;border:1px solid #2c5a76;border-radius:6px;background:radial-gradient(circle,#174567,#05101d 70%);color:var(--ship-accent);font-size:56px;text-shadow:0 0 18px var(--ship-accent);transform:skew(-6deg)}
 
 .drone-shop{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin:12px 0 22px;padding:16px;background:#0b233a;border:1px solid #267a99;border-radius:9px}.drone-shop>div:nth-child(2){flex:1;min-width:190px}.drone-shop strong{color:#b6f8ff}.drone-shop p{color:#f7d98a;margin:5px 0}.drone-shop small{color:#91b8d2}.drone-icon{font-size:25px;color:#63e9ff;letter-spacing:3px}.drone-shop button{padding:12px 14px;background:#087d9e;color:white;border:1px solid #3ac7e3;border-radius:5px;font-weight:700}.drone-shop button:disabled{opacity:.45;cursor:not-allowed}
+
+/* Visual overhaul V6 */
+.lobby-hero{background:linear-gradient(90deg,#041025f5 0%,#05122ab0 44%,#03101b22 100%),url("assets/galaxy_hero.webp") center 47%/cover no-repeat;min-height:320px}
+.lobby-hero:after{display:none}.hero-ship{font-size:105px;right:10%;top:22%;filter:drop-shadow(0 0 20px #55cfff)}
+.lobby-card{background:linear-gradient(155deg,#0a2038ed,#050d1de8);border-color:#267b9b}
+#hud .panel{background:linear-gradient(135deg,#07192cdd,#020813e8);border-color:#2d86a8;box-shadow:0 0 18px #0abcf41a,inset 0 1px #92eaff3d,0 12px 30px #0009}
+#hud .panel-heading{background:linear-gradient(90deg,#125575,#07192c);color:#aaf3ff}
+#hud .brand{letter-spacing:2.5px;text-shadow:0 0 16px #17bce8}
+#hud .bottom button{border-radius:7px;background:radial-gradient(circle at 50% 0%,#1e6581,#071629 78%);box-shadow:inset 0 1px #7eeeff66,0 0 12px #02a9ff1a}
+#hud .bottom button:hover{box-shadow:0 0 18px #45dfffaa}
+#hud .chat{backdrop-filter:blur(9px)}
+#hud .righttop .miniwrap{box-shadow:inset 0 0 18px #21b8ff22;border-color:#3e93b5}
+
+.goliath-preview{display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(circle,#16425e 0%,#07182d 75%)!important}
+.goliath-preview img{height:100%;width:100%;max-height:130px;object-fit:contain;filter:drop-shadow(0 0 10px #54dfff7d)}
+
+#portalHelp{position:fixed;z-index:5;top:86px;left:50%;transform:translateX(-50%);padding:7px 15px;background:#06192bcc;color:#9deeff;border:1px solid #248bb977;border-radius:18px;font:11px system-ui;pointer-events:none;white-space:nowrap}
+#portalHelp strong{color:#fff}
+body:has(#hud[hidden]) #portalHelp{display:none}
+@media(max-width:700px){#portalHelp{top:58px;font-size:9px;max-width:90vw;overflow:hidden;text-overflow:ellipsis}}
+
+/* V10 visual upgrades */
+.shipcard{background:linear-gradient(145deg,#10253d,#060d1c);border:1px solid #3d789b88;box-shadow:inset 0 1px #a6e9ff22,0 9px 26px #0006;transition:transform .18s,box-shadow .18s}
+.shipcard:hover{transform:translateY(-3px);box-shadow:0 0 22px #27a6ff35}
+.ship-preview{background:radial-gradient(ellipse at 50% 42%,#1e637e80,#061426 68%);text-shadow:0 0 22px var(--ship-accent)}
+.upgrades button{border:1px solid #3b8fb5;background:linear-gradient(135deg,#0c3851,#071627);box-shadow:inset 0 1px #a1edff25}
+.upgrades button:hover:not(:disabled){background:linear-gradient(135deg,#13658a,#0c2542)}
+.upgrades button:disabled{opacity:.55;cursor:not-allowed}
+#space{background:#020b18}
+
+/* Galactic market V11 */
+.market-tabs{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}
+.market-tabs button{padding:10px 13px;border:1px solid #35657f;border-radius:7px;background:#0a2034;color:#a8d5ec;cursor:pointer}
+.market-tabs button.active,.market-tabs button:hover{color:#fff;background:#115477;border-color:#65e7ff;box-shadow:0 0 14px #00b9ff33}
+.market-wallet{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 14px;background:#081c2b;border:1px solid #2d7895;border-radius:8px;color:#b4e5fb}
+.market-wallet b{color:#fce49b;font-size:18px}.market-wallet span{margin-left:auto;color:#81a9c4;font-size:11px}
+.market-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:12px;margin:14px 0}
+.market-item{display:flex;gap:12px;align-items:center;padding:15px;background:linear-gradient(135deg,#0d2a42,#071421);border:1px solid #2c6789;border-radius:10px;min-height:132px}
+.market-symbol{font-size:29px;color:#62dfff;text-shadow:0 0 15px #1bd4ff}
+.market-item-body{flex:1;min-width:0}.market-item h4{margin:0 0 6px;color:#e8faff}.market-item p{font-size:12px;line-height:1.4;color:#a2c1d3;margin:0 0 8px}.market-item small{color:#9ce1a8}
+.market-buy{display:flex;flex-direction:column;align-items:end;gap:10px;white-space:nowrap}.market-buy b{color:#ffdf83}
+.market-buy button,.market-use button{padding:8px 12px;border:1px solid #3eb6d6;border-radius:6px;background:#0c6888;color:#fff;cursor:pointer}.market-buy button:disabled{opacity:.45;cursor:not-allowed}
+.market-inventory{padding:12px 15px;margin:12px 0 22px;border:1px solid #265873;border-radius:8px;background:#071626}.market-inventory>div{display:flex;gap:9px;flex-wrap:wrap;margin:9px 0}.market-inventory span{background:#123047;border-radius:5px;padding:5px 8px;color:#b9e9fc;font-size:12px}
+.market-note{padding:18px;color:#b2dbea}.market-use button{font-size:12px}
+#legacyHangar{border-top:1px solid #346c8c;margin-top:18px;padding-top:18px}
+
+#marketUridium{color:#bb9bff;text-shadow:0 0 9px #9c67ff66}
+.market-tabs button[data-category="premium"]{background:linear-gradient(130deg,#45235e,#141d41);border-color:#a16aff;color:#e6d0ff}
+.market-tabs button[data-category="premium"].active{box-shadow:0 0 18px #a16aff77}
+
+/* V13: compact, optional performance HUD. Hidden elements must stay hidden. */
+.performance-toggle{position:fixed;z-index:40;right:14px;top:14px;background:#09263ddc;color:#c3edff;border:1px solid #397b9c;border-radius:8px;padding:7px 11px;font:600 11px system-ui;cursor:pointer}
+.performance-panel{position:fixed;z-index:39;right:14px;top:52px;width:155px;padding:11px 12px;background:#061a2deb;border:1px solid #3989a7;border-radius:10px;box-shadow:0 8px 22px #0009;color:#dbf6ff;pointer-events:none;font:12px system-ui}
+.performance-panel[hidden]{display:none!important}
+.performance-line{display:flex;justify-content:space-between;gap:8px;margin:3px 0 5px}
+.performance-line strong{font-variant-numeric:tabular-nums}
+.performance-meter{height:5px;background:#1a394a;border-radius:6px;overflow:hidden;margin-bottom:9px}
+.performance-meter i{display:block;height:100%;width:0;transition:width .35s;background:#41d8a2}
+.performance-meter i.warn{background:#ffbf57}.performance-meter i.bad{background:#f26778}
+@media(max-width:600px){.performance-toggle{top:8px;right:8px;font-size:10px;padding:5px 8px}.performance-panel{top:40px;right:8px;width:125px}}
+
+.command-open{position:fixed;z-index:42;top:14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#10567a,#132a55);border:1px solid #60dbff;border-radius:9px;color:#e8faff;padding:9px 14px;box-shadow:0 0 14px #26bfff44;font:700 11px system-ui;cursor:pointer}
+@media(max-width:600px){.command-open{top:8px;font-size:10px;padding:6px 9px}}
+
+.auto-cpu-hud{position:fixed;z-index:38;left:14px;bottom:74px;width:225px;background:#061b30e9;border:1px solid #338fb0;border-radius:9px;padding:10px 12px;color:#d4f7ff;font:11px system-ui;pointer-events:none;box-shadow:0 4px 20px #0008}
+.auto-cpu-hud[hidden]{display:none!important}.cpu-hud-head{font-weight:800;color:#7fe5ff;margin-bottom:8px;display:flex;justify-content:space-between;gap:7px}.cpu-hud-head span{font-weight:500;color:#c7f5a9}.cpu-hud-row{display:flex;justify-content:space-between;gap:8px;margin-top:7px}.cpu-hud-track{height:5px;background:#16374e;border-radius:5px;overflow:hidden;margin-top:5px}.cpu-hud-track i{display:block;background:#52e4ad;height:100%;width:0;transition:width .15s}
+@media(max-width:600px){.auto-cpu-hud{left:8px;bottom:50px;width:175px;font-size:9px;padding:7px}}
+
+/* V18: reference-inspired star-system chart, collapsible inside the game */
+#starMapToggle{position:fixed;top:55px;left:50%;transform:translateX(-50%);z-index:45;padding:7px 13px;border:1px solid #527a8a;border-radius:3px;background:#101e2aee;color:#ffe8b8;font:800 12px system-ui;letter-spacing:1px;cursor:pointer;box-shadow:0 2px 8px #0008}
+.star-map-overlay{position:fixed;z-index:100;inset:4vh 3vw;background:#131c24f5;border:2px solid #2b586b;box-shadow:0 0 0 2px #091018,0 20px 100px #000e;color:#d8e2e5;font:13px system-ui;display:flex;flex-direction:column;overflow:hidden}
+.star-map-overlay[hidden]{display:none!important}
+.star-map-title{height:46px;min-height:46px;background:#112631;border-bottom:2px solid #29596b;display:flex;align-items:center;gap:12px;padding:0 13px;color:#f7deb0;font-size:22px;text-shadow:0 0 7px #bfa57544}
+.star-map-icon{font-size:25px;color:#83bbd1}.star-map-subtitle{margin-left:auto;color:#82a6b7;font-size:11px;letter-spacing:1px}
+#starMapClose{border:1px solid #46768a;color:#e2e7e8;background:#1b3442;border-radius:2px;font-size:24px;line-height:1;padding:0 11px;cursor:pointer}
+.star-map-viewport{flex:1;overflow:auto;background:radial-gradient(ellipse at 60% 40%,#27313b,#111920 75%);position:relative}
+.star-map-inner{position:relative;width:1200px;height:760px;min-width:1200px;background-image:radial-gradient(#8aa4b24f .65px,transparent .8px),repeating-linear-gradient(0deg,transparent 0 3px,#ffffff04 4px 5px);background-size:43px 41px,100% 5px}
+#starMapLines{position:absolute;inset:0;width:1200px;height:760px;pointer-events:none}
+.star-map-link{fill:none;stroke:#a4b0b7;stroke-width:2;opacity:.78}
+.star-map-jump{font:11px system-ui;fill:#b2bdc3;paint-order:stroke;stroke:#101820;stroke-width:3px}
+.star-map-node{position:absolute;width:150px;height:95px;border:2px solid #aeb7bc;background:#101d2b;box-shadow:0 2px 12px #000b;cursor:pointer;overflow:hidden;text-align:left;padding:0;color:white}
+.star-map-node:hover{border-color:#f9d991;filter:brightness(1.18)}.star-map-node.current{border:3px solid #ffd46e;box-shadow:0 0 20px #ffd46e70}
+.star-map-node .space-art{position:absolute;inset:0;background:radial-gradient(circle at 70% 65%,#ffd38c 0 1%,transparent 4%),radial-gradient(ellipse at 43% 65%,var(--nebula),transparent 65%),radial-gradient(circle at 18% 22%,#11192d 0 14%,transparent 15%),linear-gradient(135deg,#090d17,#253849 65%,#070d17);opacity:.95}
+.star-map-node .space-art:after{content:"";position:absolute;inset:0;background-image:radial-gradient(#fff8 1px,transparent 1.5px);background-size:25px 29px}
+.star-map-node .sector-name{position:absolute;left:5px;top:3px;font-size:14px;font-weight:900;text-shadow:0 1px 4px #000}
+.star-map-node .sector-info{position:absolute;bottom:3px;left:5px;font-size:10px;color:#c7e8eb;text-shadow:0 1px 4px #000}
+.star-map-node .home-flag{position:absolute;bottom:4px;right:5px;font-size:10px;color:#ffe09a;text-shadow:0 1px 4px #000}
+.star-map-footer{min-height:36px;background:#10232f;border-top:1px solid #366579;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:7px 14px;font-size:11px;color:#9bb9c5}
+@media(max-width:650px){#starMapToggle{top:39px;font-size:10px;padding:5px}.star-map-overlay{inset:5px}.star-map-title{font-size:17px}.star-map-subtitle{display:none}.star-map-footer{font-size:9px;flex-wrap:wrap}.star-map-node{touch-action:manipulation}}
+
+/* V19: octagonal portal jump button, displayed only in portal range */
+.portal-jump-controls{position:fixed;z-index:47;bottom:125px;right:22px;display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none;text-align:center;color:#b9edff;font:800 11px system-ui;text-shadow:0 1px 5px #000}
+.portal-jump-controls[hidden]{display:none!important}
+.portal-jump-caption{padding:5px 9px;border-radius:6px;background:#061827d9;border:1px solid #3b7c9e;max-width:165px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.portal-jump-button{position:relative;display:block;width:112px;height:112px;padding:0;border:0;background:transparent;cursor:pointer;pointer-events:auto;filter:drop-shadow(0 0 12px #48baf4);animation:jump-pulse 2s ease-in-out infinite}
+.portal-jump-button svg{display:block;width:100%;height:100%}
+.portal-jump-button span{position:absolute;left:0;right:0;bottom:13px;font:900 11px system-ui;letter-spacing:1.3px;color:#fff;text-shadow:0 2px 5px #000}
+.portal-jump-button:hover,.portal-jump-button:focus-visible{filter:drop-shadow(0 0 20px #b5f6ff);transform:scale(1.06)}
+.portal-jump-button:active{transform:scale(.96)}
+.portal-jump-hint{color:#77d9ff;background:#061827c7;border-radius:5px;padding:4px 7px}
+@keyframes jump-pulse{50%{filter:drop-shadow(0 0 22px #57dfff)}}
+@media(max-width:600px){.portal-jump-controls{bottom:100px;right:9px}.portal-jump-button{width:85px;height:85px}.portal-jump-button span{font-size:9px;bottom:10px}.portal-jump-caption{font-size:9px;max-width:130px}}
+@media(prefers-reduced-motion:reduce){.portal-jump-button{animation:none}}
+
+.performance-settings{display:grid;gap:6px;margin-bottom:10px;pointer-events:auto}.performance-settings label{display:flex;justify-content:space-between;align-items:center;gap:5px;font-size:10px}.performance-settings select{max-width:100px;background:#14354b;color:#e0f6ff;border:1px solid #4786a1;border-radius:4px;font-size:10px;padding:3px}
+
+/* V22 – accessible PC/mobile settings overlay */
+.game-settings-toggle{position:fixed;top:14px;right:190px;z-index:48;width:36px;height:34px;border:1px solid #5bafce;border-radius:9px;background:#09263df0;color:#bcefff;font:26px system-ui;line-height:1;cursor:pointer;box-shadow:0 0 12px #2a9fc844}
+.game-settings-toggle:hover,.game-settings-toggle:focus-visible{color:white;border-color:#a5efff}
+.game-settings-dialog{position:fixed;inset:0;z-index:120;background:#020916d9;display:grid;place-items:center;padding:12px;color:#d9f4ff;font:13px system-ui}
+.game-settings-dialog[hidden]{display:none!important}
+.game-settings-card{width:min(460px,100%);max-height:calc(100dvh - 24px);overflow:auto;border:1px solid #58a6c9;border-radius:14px;background:linear-gradient(160deg,#112c42,#061522);box-shadow:0 20px 90px #000d}
+.game-settings-card header,.game-settings-card footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid #305772}
+.game-settings-card header h2{font-size:17px;margin:0;color:#d7f8ff}.game-settings-card header button{background:#173f58;border:1px solid #4b819e;border-radius:7px;color:#fff;padding:7px 11px;cursor:pointer}
+.game-settings-content{padding:14px 18px}.game-settings-content fieldset{border:1px solid #315a74;border-radius:9px;margin:0 0 14px;padding:12px}.game-settings-content legend{font-weight:800;letter-spacing:1px;color:#7ee1ff;padding:0 5px}.game-settings-content label{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:8px 0}.game-settings-content select{width:57%;min-width:0;border:1px solid #4d89a8;border-radius:7px;background:#0b2b40;color:#effbff;padding:9px;font:12px system-ui}.game-settings-content p{color:#98b8c9;font-size:11px;line-height:1.5}
+.game-settings-card footer{border-top:1px solid #305772;border-bottom:0}.game-settings-card footer button{border:1px solid #4c92b2;border-radius:8px;background:#133c55;color:#e6faff;padding:10px 15px;cursor:pointer}.game-settings-card footer #gameSettingsDone{background:#16789b;font-weight:800}
+#space{touch-action:none}
+@media(max-width:600px){.game-settings-toggle{top:44px;right:9px;width:32px;height:30px;font-size:22px}.game-settings-content label{font-size:11px}.game-settings-content select{width:60%}}
+
+.client-install{display:block;margin:12px auto 0;padding:10px 18px;border:1px solid #66d9ff;border-radius:8px;color:#d7f7ff;background:#103a5a;cursor:pointer;font-weight:800}
+.client-install[hidden],.client-install-hint[hidden]{display:none}
+.client-install-hint{font-size:12px;color:#b8d9ed;text-align:center;max-width:330px;margin:8px auto}
+
+
+/* V27 Launcher: Login-Elemente bleiben unverändert mit client.js verbunden. */
+#auth.launcher-v27{z-index:20;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;padding:14px clamp(14px,3vw,42px) 24px;overflow-y:auto;background:linear-gradient(90deg,rgba(2,7,21,.50),rgba(1,9,28,.15) 45%,rgba(2,7,21,.55)),url('/assets/launcher-nebula.webp') center/cover no-repeat}
+.launcher-v27 .launcher-status{display:flex;align-items:center;gap:9px;align-self:flex-start;padding:9px 13px;background:#03142dc9;border:1px solid #1a5b76;border-radius:9px;color:#68ffd5;font-weight:800;letter-spacing:.7px}
+.launcher-v27 .launcher-status small{display:block;font-size:9px;color:#a5c8e7;letter-spacing:1.5px}
+.launcher-live-dot{width:9px;height:9px;border-radius:50%;background:#00df8c;box-shadow:0 0 14px #00ffaf}
+.launcher-top-actions{position:absolute;right:24px;top:16px;display:flex;gap:8px}.launcher-top-actions button{font-size:21px;width:42px;height:42px;border:1px solid #49b5ed;background:#06182dc9}
+.launcher-brand{position:relative;text-align:center;margin:0 auto 12px;text-shadow:0 4px 18px #030719,0 0 40px #1a83df;line-height:1}.launcher-brand-main{font-size:clamp(40px,7vw,100px);font-weight:1000;letter-spacing:clamp(3px,1vw,12px);color:#e1f4ff;-webkit-text-stroke:1px #5cb7f7}.launcher-brand-sub{font-size:clamp(15px,2.5vw,31px);color:#81cbff;letter-spacing:clamp(4px,1.1vw,15px);margin-top:7px}
+.launcher-center{display:flex;justify-content:center;align-items:center;gap:clamp(16px,3vw,45px);width:100%;margin:auto}.launcher-v27 .authbox{flex:0 1 490px;width:min(490px,100%);max-height:none;padding:18px 24px;background:linear-gradient(150deg,#03162df2,#020b1df5);border:1px solid #3faeea;box-shadow:0 0 0 4px #01101da8,0 0 35px #0089ff36;border-radius:4px}.launcher-v27 .tabs{margin:0 0 18px;gap:8px}.launcher-v27 .tabs button{padding:13px;font-size:16px;background:#04162e}.launcher-v27 .tabs button.active{background:#073c64;color:white;border-color:#56cfff;box-shadow:inset 0 0 16px #008fff55}.launcher-v27 .authbox label{font-size:12px}.launcher-v27 .authbox input,.launcher-v27 .authbox select{font-size:14px;padding:13px;background:#03152a;border-color:#24608b}.launcher-v27 #authGo{margin-top:18px;padding:16px;font-size:22px;letter-spacing:2px;color:white;background:linear-gradient(180deg,#06a776,#00563e);border:1px solid #67ffcf;box-shadow:0 0 18px #00ff9550}.launcher-v27 #authGo:hover{filter:brightness(1.2)}.launcher-divider{text-align:center;margin:12px 0;color:#8eb8d7;letter-spacing:2px}.launcher-v27 .client-install{width:100%;padding:12px;font-size:14px;letter-spacing:1px;background:linear-gradient(180deg,#075188,#052448);border-color:#58baff}.launcher-security{font-size:10px;color:#7695b4;line-height:1.4;text-align:center;margin:10px 0 0}.launcher-v27 .msg{min-height:14px;text-align:center}
+.launcher-news{flex:0 1 325px;align-self:center;padding:15px 18px;background:#031329e8;border:1px solid #388bbf;box-shadow:0 0 30px #000a;border-radius:5px}.launcher-news h2{font-size:14px;letter-spacing:1.5px;color:#c7e9ff;margin:0 0 10px}.launcher-news-row{display:flex;gap:10px;padding:11px 0;border-top:1px solid #205078}.launcher-news-icon{font-size:28px;color:#ffcf80;text-shadow:0 0 15px #fcb64d}.launcher-news-row strong{display:block;font-size:12px;color:#d2eeff}.launcher-news-row small{display:block;color:#9ebbd9;font-size:11px;margin-top:4px}
+.launcher-features{display:flex;justify-content:center;gap:clamp(10px,4vw,75px);margin:22px auto 0;width:100%;max-width:1000px}.launcher-features>div{text-align:center;color:#69c7ff;font-size:24px;min-width:0}.launcher-features strong{display:block;font-size:12px;color:#e4f4ff;letter-spacing:1px}.launcher-features small{display:block;color:#a8c7df;font-size:11px}
+@media(max-width:850px){.launcher-news{display:none}.launcher-brand{margin:16px auto}.launcher-center{margin:10px auto}.launcher-v27 .authbox{flex-basis:460px}.launcher-features{gap:14px;flex-wrap:wrap}.launcher-features>div{flex:1 1 40%;font-size:18px}}
+@media(max-width:480px){#auth.launcher-v27{padding:12px 12px 18px}.launcher-top-actions{top:12px;right:12px}.launcher-top-actions button{width:34px;height:34px;font-size:17px}.launcher-v27 .launcher-status{font-size:10px;max-width:180px}.launcher-brand{margin:18px auto 14px}.launcher-brand-main{font-size:clamp(32px,11vw,48px)}.launcher-brand-sub{font-size:14px;letter-spacing:4px}.launcher-v27 .authbox{padding:15px}.launcher-v27 .authbox input{padding:11px}.launcher-v27 .tabs button{font-size:13px}.launcher-features{margin-top:14px}}

@@ -1,0 +1,33 @@
+/* V41: original-era space MMO inspired visual skin; independent CSS artwork. */
+:root{--nf-steel:#657781;--nf-edge:#8b9ca2;--nf-cyan:#64c9ff;--nf-deep:#070d12;--nf-gold:#f3c55b}
+body{font-family:Tahoma,Arial,sans-serif!important;color:#d6e1e7;background:radial-gradient(ellipse at 75% -10%,#844323 0,#2b1d1a 29%,#08121a 62%,#020509 100%) fixed!important}
+header{position:relative;min-height:100px;background:linear-gradient(180deg,#17222a 0%,#03080d 56%,#202f38 96%,#070a0c 100%)!important;border-top:2px solid #6c858e!important;border-bottom:5px ridge #617983!important;box-shadow:0 10px 22px #000d!important}
+header:after{content:'NEBULA FRONTIER  ·  RELOADED COMMAND';position:absolute;bottom:4px;left:24px;font-size:9px;letter-spacing:2px;color:#6f9bb0;pointer-events:none}
+.brand{font-style:italic;font-weight:1000!important;letter-spacing:1px!important;text-shadow:2px 3px #000,0 0 12px #b2eaff!important}.brand em{font-style:italic!important}
+.start-launch{background:linear-gradient(#9fdb62 0%,#54a728 38%,#206010 58%,#2d7a14 100%)!important;border:3px ridge #c3ff8e!important;border-radius:9px!important;box-shadow:0 0 0 3px #182b18,0 0 20px #5de33270,inset 0 2px 4px #e1ffaf!important;color:#fff!important;text-shadow:0 2px 2px #173a0b!important;font-size:22px!important;min-width:185px}
+nav{gap:4px!important;background:linear-gradient(#1d2b34,#070b0e)!important;border-bottom:4px ridge #516a77!important;padding:9px 15px!important}
+nav button,button:not(.start-launch){font-family:Tahoma,Arial,sans-serif;border-radius:2px!important;background:linear-gradient(#344550,#17252e 46%,#07121a 51%,#213541)!important;border:1px solid #607985!important;box-shadow:inset 0 1px #a4b8be50,0 2px 4px #0009!important;text-shadow:0 1px 2px #000;font-weight:700}
+nav button{font-size:11px!important;letter-spacing:.25px;padding:10px 12px!important}
+nav button.active,nav button:hover{background:linear-gradient(#2979a6,#0b3657 50%,#102b40)!important;border-color:#70d4ff!important;box-shadow:inset 0 1px #a1e5ff,0 0 12px #2cb6ff90!important;color:#fff}
+main{max-width:1450px!important;padding:12px 16px!important}
+.wallet{background:linear-gradient(#364751,#080f14 45%,#253740)!important;border:3px ridge #748a93!important;padding:6px!important;margin:0 0 12px!important;box-shadow:0 5px 16px #000a}
+.wallet span{border-radius:1px!important;border:1px solid #3b5967!important;background:linear-gradient(#111f29,#050a10)!important;padding:9px 14px!important;font-size:12px!important}
+.wallet b{color:#eafaff!important;text-shadow:0 0 8px #35b8ff70}
+#content{min-height:480px;border:4px ridge #5e737e;background:linear-gradient(135deg,#18242b,#060b0f 36%,#080e12 90%);padding:12px;box-shadow:inset 0 0 0 2px #060b0e,0 12px 30px #0009}
+.classic-hangar{border:3px ridge #87969a!important;border-radius:0!important;background:linear-gradient(155deg,#27363e,#0a1116 24%,#04080c 90%)!important;box-shadow:inset 0 0 0 2px #050a0d,0 12px 28px #000!important}
+.classic-toolbar{border:3px ridge #788891!important;background:linear-gradient(#40535d,#141c22 44%,#060a0d 52%,#253741)!important}
+.classic-columns{grid-template-columns:minmax(200px,.9fr) minmax(330px,1.55fr) minmax(220px,.85fr)!important;gap:7px!important}
+.classic-columns>section,.classic-columns>aside{border:3px ridge #586d77!important;background:repeating-linear-gradient(120deg,#08131b,#08131b 20px,#0a1821 21px,#08131b 22px)!important;padding:10px!important}
+.classic-columns h3{color:#d4e2e9!important;border-bottom:2px ridge #536975!important;background:linear-gradient(#32444d,#10181e)!important;text-shadow:0 1px #000}
+.classic-ship-stage{border:2px ridge #345061!important;background:radial-gradient(ellipse at 50% 45%,#2d4e60 0%,#0b1923 45%,#05090d 78%),repeating-linear-gradient(0deg,transparent 0 24px,#64b5d50b 25px)!important;min-height:280px}
+.equipment-slot{border:1px solid #68808c!important;border-radius:0!important;background:linear-gradient(140deg,#263842,#080d11 56%,#182a34)!important;box-shadow:inset 0 1px #9daeb033!important}
+.equipment-slot.filled{border-color:#9ac0d2!important;background:linear-gradient(140deg,#3b5c6d,#12242f 60%,#273b46)!important}
+.inventory-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:3px!important}
+.inventory-tile{min-height:62px!important;padding:3px 1px!important;border:1px solid #70838c!important;border-radius:0!important;background:linear-gradient(135deg,#334650,#0a1117 56%,#24333b)!important}
+.inventory-tile.selected{outline:2px solid #9cecff!important;outline-offset:-2px}
+.inventory-tile small{font-size:8px!important}
+.card,.metric,.inventory{border-radius:2px!important;border:2px ridge #607b89!important;background:linear-gradient(#243742,#0a141b 34%,#0a131a)!important;box-shadow:0 7px 18px #0009!important}
+.card h2,h1,h2{color:#e0f4ff;text-shadow:0 1px 2px #000}
+.place-gate-button{background:linear-gradient(#55f58d,#0c9a44 50%,#05642b)!important;border:2px ridge #9dffc1!important;box-shadow:0 0 12px #16c56877!important}
+@media(max-width:1050px){.classic-columns{grid-template-columns:1fr 1.5fr!important}.classic-inventory{grid-column:1/-1!important}}
+@media(max-width:680px){header{min-height:88px}.start-launch{min-width:110px;font-size:17px!important}.classic-columns{grid-template-columns:1fr!important}.classic-inventory{grid-column:auto!important}.inventory-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}#content{padding:5px}}

@@ -1,0 +1,14 @@
+/* V41 client chrome: classic metal-framed MMO HUD; gameplay logic untouched. */
+#hud .panel,.performance-panel,.game-settings-card,.star-map-overlay{border-radius:2px!important;border:3px ridge #607a88!important;background:linear-gradient(160deg,#24333bdc,#071018ed 32%,#0a1923ed)!important;box-shadow:inset 0 0 0 1px #060b0f,0 7px 20px #000b!important;color:#e3f4ff}
+#hud .panel-heading,#hud .eyebrow{font-family:Tahoma,Arial,sans-serif!important;color:#9ad9f6!important;font-size:11px!important;font-weight:bold!important;letter-spacing:.8px!important;text-shadow:0 1px 2px #000}
+#hud button,.command-open,.portal-jump-button{border-radius:2px!important;border:2px ridge #577b91!important;background:linear-gradient(#375363,#102433 50%,#09121a 51%,#274252)!important;box-shadow:inset 0 1px #b5d5e244,0 3px 8px #000b!important;color:#dff5ff!important;text-shadow:0 1px 2px #000}
+#hud button:hover,.command-open:hover{border-color:#8be4ff!important;filter:brightness(1.2)}
+#hud .brand{background:linear-gradient(#273c4a,#060d13)!important;color:#bfe8ff!important;border:3px ridge #6a8a9b!important;font-style:italic!important;font-weight:900!important}
+#hud .hud-topbar{background:linear-gradient(#283b45,#070d13)!important;border-bottom:2px ridge #68828f!important;color:#a8d4e7!important}
+#hud .bar{border-radius:0!important;background:#02070a!important;border:1px solid #526c79!important}
+#hud .hp{background:linear-gradient(#a7f487,#288b2d)!important}#hud .shield{background:linear-gradient(#b0e8ff,#1373c7)!important}
+#hud .bottom{border:3px ridge #8a9a9e!important;background:linear-gradient(#283a44,#070c10 58%,#1b303b)!important}
+#hud .chat input{border-radius:1px!important;background:#06131b!important;border:1px solid #4a7084!important;color:#eaf8ff!important}
+#auth.launcher-v27 .authbox{border:4px ridge #638497!important;border-radius:2px!important;background:linear-gradient(150deg,#1a2d3df0,#030a12f7 40%,#071622f7)!important;box-shadow:0 0 0 3px #010609,0 0 30px #239dd255!important}
+#auth.launcher-v27 .tabs button{border-radius:2px!important;background:linear-gradient(#344f61,#07131e)!important}
+#auth.launcher-v27 #authGo{background:linear-gradient(#7acb49,#267b18 55%,#12530c)!important;border:3px ridge #a8ee7e!important;border-radius:5px!important}

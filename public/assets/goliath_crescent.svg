@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+<defs>
+<linearGradient id="steel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f2f5fa"/><stop offset=".2" stop-color="#9faec2"/><stop offset=".43" stop-color="#394c63"/><stop offset=".65" stop-color="#d6dfe9"/><stop offset="1" stop-color="#1c2b40"/></linearGradient>
+<linearGradient id="blade"><stop stop-color="#0c1424"/><stop offset=".55" stop-color="#6f8196"/><stop offset=".86" stop-color="#e1e8ee"/><stop offset="1" stop-color="#52667c"/></linearGradient>
+<linearGradient id="engine"><stop stop-color="#b9faff"/><stop offset=".4" stop-color="#1bcdff"/><stop offset="1" stop-color="#145aff" stop-opacity="0"/></linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+<!-- A unique crescent-ring silhouette: nose points right, matching canvas heading -->
+<g stroke="#172437" stroke-width="2.5" stroke-linejoin="round">
+<!-- crescent blade upper, forward edge and open center -->
+<path d="M183 34 C122 5 49 37 24 93 C14 119 15 149 29 171 C24 112 59 64 112 56 C143 52 170 62 192 76 L178 59 Z" fill="url(#blade)"/>
+<path d="M174 27 L202 39 L183 69 L161 58 L146 31 Z" fill="url(#steel)"/>
+<path d="M173 41 L185 49 L172 63 L163 57 Z" fill="#1a293c" stroke-width="1"/>
+<!-- crescent blade lower -->
+<path d="M28 165 C46 219 106 248 168 230 C194 223 214 207 227 187 C190 209 146 216 112 199 C79 185 59 162 53 129 Z" fill="url(#blade)"/>
+<path d="M159 207 L220 183 L227 214 L196 238 L154 234 Z" fill="url(#steel)"/>
+<path d="M169 221 L202 207 M178 230 L213 215" stroke="#f0f7ff" stroke-width="1" opacity=".8"/>
+<!-- port-side armored upper wing -->
+<path d="M94 113 L110 58 L151 21 L167 90 L143 119 Z" fill="url(#steel)"/>
+<path d="M111 90 L133 39 L144 76 L129 106 Z" fill="#142236" stroke-width="1"/>
+<path d="M145 50 L156 35 L164 90 L148 99 Z" fill="#70869d" stroke-width="1"/>
+<!-- starboard wing -->
+<path d="M98 145 L129 163 L165 178 L203 199 L167 218 L107 189 L82 158 Z" fill="url(#steel)"/>
+<path d="M128 177 L172 202 L151 204 L112 188 Z" fill="#1a2c43" stroke-width="1"/>
+<!-- mechanical link arms -->
+<path d="M50 91 L100 112 L101 121 L48 107 Z" fill="#1b2b3d"/>
+<path d="M54 173 L105 143 L113 154 L61 186 Z" fill="#1b2b3d"/>
+<!-- engine blocks -->
+<path d="M71 115 L101 113 L102 127 L69 129 Z" fill="#26384e"/>
+<path d="M75 135 L104 134 L104 147 L75 153 Z" fill="#26384e"/>
+<!-- fuselage -->
+<path d="M65 127 L115 108 L183 112 L238 127 L182 143 L115 151 Z" fill="url(#steel)"/>
+<path d="M99 126 L161 117 L215 127 L161 136 Z" fill="#152238" stroke-width="1"/>
+<path d="M163 122 L214 127 L166 131 Z" fill="#b3d4e8" stroke-width=".5"/>
+<!-- raised central spine -->
+<path d="M85 119 L149 112 L188 123 L149 130 L85 135 Z" fill="#8395a9" stroke-width="1"/>
+<path d="M104 124 L150 118 L176 124 L146 128 Z" fill="#1a2e46" stroke-width="1"/>
+<!-- paired cannons -->
+<path d="M153 105 L214 108 L226 113 L154 114 Z" fill="#3c4c61"/>
+<path d="M158 141 L218 140 L228 135 L157 135 Z" fill="#3c4c61"/>
+<path d="M197 108 L236 111 M200 139 L236 135" stroke="#c4d9e9" stroke-width="2"/>
+<!-- armor details -->
+<path d="M122 69 L144 87 M122 186 L155 196 M46 88 L70 67 M46 175 L71 194" stroke="#eef6ff" stroke-width="2" opacity=".7"/>
+<path d="M131 55 L142 81 M147 188 L173 199" stroke="#273a51" stroke-width="4"/>
+</g>
+<g fill="#5fe6ff">
+<ellipse cx="98" cy="120" rx="5" ry="3"/><ellipse cx="98" cy="142" rx="5" ry="3"/>
+<path d="M103 126 L125 124 L138 126 L125 128 Z"/>
+</g>
+<g fill="url(#engine)"><path d="M69 116 L26 112 L70 125 Z"/><path d="M74 137 L28 151 L76 148 Z"/></g>
+</svg>

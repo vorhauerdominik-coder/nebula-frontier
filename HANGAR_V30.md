@@ -1,0 +1,1 @@
+V30: Hangar-Oberfläche nach Nutzerreferenz mit grüner START-Schaltfläche, Schiffsvorschau, Laser-/Generator-/Extras-Slot-Vorschau und Inventaranzeige. START fokussiert das Spiel. Die Ausrüstungsslots und Konfiguration 1/2 sind ausdrücklich noch nicht interaktiv oder serverseitig gespeichert; Kaufen/Ausrüsten von Schiffen bleibt über SCHIFFSWERFT möglich.

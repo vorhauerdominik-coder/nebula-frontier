@@ -1,0 +1,1 @@
+V24: Bonusboxen im Stil der Bildvorlage: warmer gelbweißer leuchtender Kern, orangefarbener quadratischer Rahmen, blauvioletter Nebel und Sternenfunken. Darstellung als gecachtes Canvas-Sprite für PC und Handy. Belohnungen und Sammelmechanik aus V23 bleiben unverändert.

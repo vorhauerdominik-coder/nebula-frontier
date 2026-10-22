@@ -1,0 +1,1 @@
+// Absichtlich keine Node-APIs für die Webseite freigeben.\n

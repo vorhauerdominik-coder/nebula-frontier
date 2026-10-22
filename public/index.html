@@ -1,19 +1,28 @@
 <!doctype html>
-<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nebula Frontier MMO</title><link rel="stylesheet" href="/style.css"></head>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nebula Frontier MMO</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/game-v41.css"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#081a31"><link rel="icon" href="/client-icon.svg" type="image/svg+xml"></head>
 <body>
 <canvas id="space"></canvas>
-<div id="auth" class="overlay"><div class="authbox"><div class="eyebrow">ONLINE SPACE COMBAT</div><h1>NEBULA <span>FRONTIER</span></h1><p class="muted">Ein eigenständiges Weltraum-MMO</p>
-<div class="tabs"><button id="loginTab" class="active">Login</button><button id="registerTab">Account erstellen</button></div>
-<label>Pilotname<input id="username" maxlength="18" autocomplete="username" placeholder="z. B. StarPilot"></label>
-<label>Passwort<input id="password" type="password" minlength="8" autocomplete="current-password" placeholder="Mindestens 8 Zeichen"></label>
-<label id="factionLabel" hidden>Firma<select id="faction"><option>Astra</option><option>Vortex</option><option>Helix</option></select></label>
-<button id="authGo" class="primary">Einloggen</button><div id="authMsg" class="msg"></div>
-<p class="tiny">Demo-Server: Accounts werden lokal in <code>data/players.json</code> gespeichert. Verwende kein Passwort, das du anderswo nutzt.</p></div></div>
+<div id="auth" class="overlay launcher-v27">
+  <div class="launcher-status"><span class="launcher-live-dot"></span><span>NEBULA FRONTIER <small>ONLINE-MULTIPLAYER</small></span></div>
+  <div class="launcher-top-actions"><button type="button" id="launcherHelp" title="Informationen">ⓘ</button><button type="button" id="launcherSettings" title="Einstellungen">⚙</button></div>
+  <div class="launcher-brand"><div class="launcher-brand-main">NEBULA</div><div class="launcher-brand-sub">F R O N T I E R</div></div>
+  <div class="launcher-center"><div class="authbox"><div class="tabs"><button id="loginTab" class="active">Login</button><button id="registerTab">Registrieren</button></div>
+    <label>Benutzername<input id="username" maxlength="18" autocomplete="username" placeholder="Benutzername"></label>
+    <label>Passwort<input id="password" type="password" minlength="8" autocomplete="current-password" placeholder="Passwort"></label>
+    <label id="factionLabel" hidden>Fraktion<select id="faction"><option>Astra</option><option>Vortex</option><option>Helix</option></select></label>
+    <button id="authGo" class="primary">▶ SPIELEN</button><div id="authMsg" class="msg" aria-live="polite"></div>
+    <div class="launcher-divider">ODER</div><button id="installClient" class="client-install" type="button" hidden>⬇ CLIENT INSTALLIEREN</button><p id="installClientHint" class="client-install-hint" hidden></p>
+    <p class="launcher-security">Accounts werden auf dem Spielserver gespeichert. Verwende kein Passwort, das du anderswo nutzt.</p>
+  </div>
+  <aside class="launcher-news"><h2>✦ NEUIGKEITEN</h2><div class="launcher-news-row"><span class="launcher-news-icon">✧</span><div><strong>V27 – NEUER LAUNCHER</strong><small>Überarbeitetes Login-Fenster für PC &amp; Handy</small></div></div><div class="launcher-news-row"><span class="launcher-news-icon">✧</span><div><strong>V26 – CLIENT</strong><small>Spiel als App installieren</small></div></div><div class="launcher-news-row"><span class="launcher-news-icon">✧</span><div><strong>V25 – BONUSBOXEN</strong><small>Kleinere Sammelobjekte auf allen Maps</small></div></div></aside>
+  </div>
+  <div class="launcher-features"><div>◈ <strong>27 MAPS</strong><small>Entdecke die Galaxie</small></div><div>⚔ <strong>PVE &amp; PVP</strong><small>Kämpfe und überlebe</small></div><div>✧ <strong>SAMMELN</strong><small>Credits, Uridium und mehr</small></div><div>♧ <strong>MULTIPLAYER</strong><small>Spiele mit anderen</small></div></div>
+</div>
 <div id="lobby" class="lobby" hidden>
   <header class="lobby-header"><div class="lobby-logo">✦ NEBULA <span>FRONTIER</span><small>GALACTIC COMMAND CENTER</small></div><div class="lobby-status"><span class="live-dot"></span> SERVER ONLINE <span id="lobbyOnline">1 PILOT</span></div></header>
-  <nav class="lobby-nav" aria-label="Hauptmenü"><button data-lobby-tab="home" class="selected">⌂ STARTSEITE</button><button data-lobby-tab="profile">◈ PILOTENPROFIL</button><button data-lobby-tab="hangar">▤ HANGAR</button><button data-lobby-tab="sector">◎ SEKTOREN</button><button id="lobbyLaunchNav" class="launch-nav">▶ SPIEL STARTEN</button></nav>
+  <nav class="lobby-nav" aria-label="Hauptmenü"><button id="lobbyInstallClient" type="button">⬇ CLIENT</button><button data-lobby-tab="home" class="selected">⌂ STARTSEITE</button><button data-lobby-tab="profile">◈ PILOTENPROFIL</button><button data-lobby-tab="hangar">▤ HANGAR</button><button data-lobby-tab="sector">◎ SEKTOREN</button><button id="lobbyLaunchNav" class="launch-nav">▶ SPIEL + ZENTRALE STARTEN</button></nav>
   <main class="lobby-main">
-    <section class="lobby-hero"><div class="hero-orbit"></div><div class="hero-copy"><div class="eyebrow">WILLKOMMEN ZURÜCK, PILOT</div><h1>DAS UNIVERSUM<br><em>WARTET AUF DICH.</em></h1><p>Erkunde gefährliche Sektoren, besiege feindliche Drohnen und kämpfe Seite an Seite mit anderen Piloten.</p><button id="lobbyLaunch" class="hero-play">▶ JETZT INS ALL STARTEN</button></div><div class="hero-ship">✦</div></section>
+    <section class="lobby-hero"><div class="hero-orbit"></div><div class="hero-copy"><div class="eyebrow">WILLKOMMEN ZURÜCK, PILOT</div><h1>DAS UNIVERSUM<br><em>WARTET AUF DICH.</em></h1><p>Erkunde gefährliche Sektoren, besiege feindliche Drohnen und kämpfe Seite an Seite mit anderen Piloten.</p><button id="lobbyLaunch" class="hero-play">▶ SPIEL + ZENTRALE ÖFFNEN</button></div><div class="hero-ship">✦</div></section>
     <section class="lobby-grid">
       <article class="lobby-card profile-card"><h2>◈ PILOTENPROFIL</h2><div class="pilot-badge">✦</div><strong id="lobbyPilot">Pilot</strong><p id="lobbyFaction">FRAKTION</p><div class="profile-stats"><div>LEVEL <b id="lobbyLevel">1</b></div><div>CREDITS <b id="lobbyCredits">0</b></div><div>ABSCHÜSSE <b id="lobbyKills">0</b></div><div>XP <b id="lobbyXp">0</b></div></div></article>
       <article class="lobby-card"><h2>◎ SEKTOR-ÜBERSICHT</h2><div class="sector-radar"><span class="radar-center">✦</span><i></i><i></i><i></i></div><p class="card-bottom">Aktueller Sektor: <strong id="lobbyMap">Grenzgebiet</strong></p><p class="muted">3 erkundbare Sektoren · PvE &amp; PvP</p></article>
@@ -24,6 +33,39 @@
     <footer class="lobby-footer">NEBULA FRONTIER · INDEPENDENT SPACE MMO <span>Deine Reise beginnt hier.</span></footer>
   </main>
 </div>
+<button id="commandOpen" class="command-open" type="button">▤ KOMMANDOZENTRALE</button><button id="performanceToggle" class="performance-toggle" type="button" aria-controls="performancePanel" aria-pressed="true">FPS / PING ausblenden</button>
+<div id="performancePanel" class="performance-panel" aria-label="Performance-Anzeige"><div id="performanceSettings" class="performance-settings"></div>
+ <div class="performance-line"><span>FPS</span><strong id="perfFps">— FPS</strong></div>
+ <div class="performance-meter"><i id="fpsMeter"></i></div>
+ <div class="performance-line"><span>PING</span><strong id="perfPing">— ms</strong></div>
+ <div class="performance-meter"><i id="pingMeter"></i></div>
+</div>
+<button id="gameSettingsToggle" class="game-settings-toggle" type="button" aria-controls="gameSettingsDialog" aria-expanded="false" aria-label="Spieleinstellungen öffnen" title="Einstellungen">⚙</button>
+<section id="gameSettingsDialog" class="game-settings-dialog" role="dialog" aria-modal="true" aria-labelledby="gameSettingsTitle" hidden>
+ <div class="game-settings-card"><header><h2 id="gameSettingsTitle">⚙ SPIELEINSTELLUNGEN</h2><button id="gameSettingsClose" type="button" aria-label="Schließen">✕</button></header>
+ <div class="game-settings-content"><fieldset><legend>GRAFIK</legend><label>Grafikqualität<select id="gameQuality"><option value="auto">Automatisch</option><option value="high">Hoch</option><option value="low">Sparmodus</option></select></label><label>Bildrate<select id="gameFps"><option value="60">60 FPS</option><option value="30">30 FPS (Akku sparen)</option></select></label></fieldset>
+ <fieldset><legend>SPIELEINGABE</legend><label>Maussteuerung<select id="gameMouse"><option value="click">Klicken zum Fliegen</option><option value="hold">Gedrückt halten zum Fliegen</option></select></label><label>Toucheingabe<select id="gameTouch"><option value="tap">Tippen zum Fliegen</option><option value="drag">Ziehen zum Fliegen</option></select></label><label>Tastaturbewegung<select id="gameKeyboard"><option value="wasd">WASD + Pfeiltasten</option><option value="arrows">Nur Pfeiltasten</option><option value="off">Aus</option></select></label></fieldset>
+ <p>Änderungen werden auf diesem Gerät gespeichert. Die Server-Hz werden weiterhin über SERVER_HZ eingestellt.</p></div><footer><button id="gameSettingsReset" type="button">Standardwerte</button><button id="gameSettingsDone" type="button">FERTIG</button></footer></div>
+</section>
+<button id="starMapToggle" type="button" aria-controls="starMapOverlay" aria-expanded="false">✧ STERNENSYSTEM</button>
+<section id="starMapOverlay" class="star-map-overlay" hidden aria-label="Sternensystem">
+ <div class="star-map-title"><span class="star-map-icon">☷</span><strong>Sternensystem</strong><span class="star-map-subtitle" id="starMapFaction">FRAKTIONSGALAXIE</span><button id="starMapClose" aria-label="Sternensystem schließen" type="button">−</button></div>
+ <div class="star-map-viewport"><div class="star-map-inner" id="starMapInner"><svg id="starMapLines" viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg><div id="starMapNodes"></div></div></div>
+ <div class="star-map-footer"><span id="starMapCurrent">Aktueller Sektor</span><span>J = Karte öffnen / schließen · Reisen nur über Portale (E)</span></div>
+</section>
+<div id="portalJumpControls" class="portal-jump-controls" hidden aria-label="Sprungportal-Steuerung">
+ <div class="portal-jump-caption" id="portalJumpDestination">SPRUNGPORTAL</div>
+ <button id="portalJumpButton" class="portal-jump-button" type="button" aria-label="Durch das nächste Portal springen" title="SPRUNG AUSLÖSEN">
+  <svg viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true"><defs><radialGradient id="portalCore"><stop offset="0" stop-color="#f4ffff"/><stop offset=".22" stop-color="#8aeaff"/><stop offset=".48" stop-color="#506ce8"/><stop offset=".78" stop-color="#1b246b"/><stop offset="1" stop-color="#050c27"/></radialGradient></defs><polygon points="32,3 68,3 97,32 97,68 68,97 32,97 3,68 3,32" fill="#081827" stroke="#a3f0ff" stroke-width="5"/><polygon points="34,11 66,11 89,34 89,66 66,89 34,89 11,66 11,34" fill="#0c2342" stroke="#387baf" stroke-width="2"/><circle cx="50" cy="50" r="30" fill="url(#portalCore)" stroke="#91dfff" stroke-width="3"/><path d="M27 50Q50 10 73 50T27 50 M50 21Q20 50 50 79T50 21" fill="none" stroke="#b3efff" stroke-width="3" opacity=".75"/><circle cx="50" cy="50" r="7" fill="#fff" opacity=".9"/></svg>
+  <span>SPRUNG</span>
+ </button>
+ <div class="portal-jump-hint">PORTAL AKTIV · E</div>
+</div>
+<div id="autoCpuHud" class="auto-cpu-hud" hidden>
+ <div class="cpu-hud-head">⚙ AUTO-WAFFENSYSTEME <span id="cpuAmmo">—</span></div>
+ <div class="cpu-hud-row"><span id="cpuRocketLabel">RAKETEN-CPU AUS</span><span id="cpuRocketTime">—</span></div><div class="cpu-hud-track"><i id="cpuRocketBar"></i></div>
+ <div class="cpu-hud-row"><span id="cpuLauncherLabel">LAUNCHER-CPU AUS</span><span id="cpuLauncherTime">—</span></div><div class="cpu-hud-track"><i id="cpuLauncherBar"></i></div>
+</div>
 <div id="hud" hidden>
 <div class="brand panel">✦ NEBULA FRONTIER <small>ONLINE</small></div><div class="hud-topbar">✦ GALAXY COMMAND <span>● SEKTOR LIVE</span> <span>LINKSKLICK FLIEGEN · DOPPELKLICK ANGRIFF</span></div>
 <div class="stats panel"><div class="panel-heading">◈ SCHIFFSDATEN <span>LIVE</span></div><div class="pilot"><span id="pilotName">PILOT</span><span id="factionTag">ASTRA</span></div>
@@ -31,14 +73,22 @@
 <div class="statrow"><span>SCHILD</span><b id="shieldText">80</b></div><div class="bar"><i id="shieldBar" class="shield"></i></div>
 <div class="statrow"><span>ERFAHRUNG</span><b id="xpText">0 XP</b></div><div class="bar"><i id="xpBar" class="xp"></i></div>
 <div class="economy">LEVEL <b id="level">1</b> <span>CREDITS</span> <b id="credits">300</b></div></div>
-<div class="righttop panel"><div class="eyebrow">◈ SEKTOR-RADAR</div><select id="mapSelect"><option value="frontier">Grenzgebiet · Lv 1</option><option value="asteroid">Asteroidengürtel · Lv 2</option><option value="nebula">Nebelmeer · Lv 4</option></select><div id="mapInfo">Patrouillen-Sektor</div><div class="miniwrap"><canvas id="minimap" width="180" height="110"></canvas></div></div>
+<div class="righttop panel"><div class="eyebrow">◈ SEKTOR-RADAR</div><select id="mapSelect" disabled title="Reise über Sprungportale"></select><div id="mapInfo">Patrouillen-Sektor</div><div class="miniwrap"><canvas id="minimap" width="180" height="110"></canvas></div></div>
 <div class="leftbottom panel"><div class="eyebrow">QUEST</div><b>Rogue-Drohnen beseitigen</b><p id="questText">Zerstöre 5 NPCs · 0/5</p><div class="bar"><i id="questBar" class="quest"></i></div><button id="claimQuest" class="small">Belohnung abholen</button><p class="tiny">Boss: Nebelmeer · Level 4+</p></div>
-<div class="bottom panel"><button data-action="repair" title="Reparatur (1)">✚<small>1</small></button><button data-action="shield" title="Schild-Impuls (2)">◇<small>2</small></button><button data-action="turbo" title="Turbo (3)">ϟ<small>3</small></button><button id="shopOpen" title="Hangar und Shop">▤<small>H</small></button><span class="weapon">WAFFE <b id="weaponName">PULS-LASER</b><br><small>DOPPELKLICK: ZIEL ANGRIFF · RECHTSKLICK / LEERTASTE: SCHUSS</small></span></div>
+<div class="bottom panel"><button data-action="repair" title="Reparatur (1)">✚<small>1</small></button><button data-action="shield" title="Schild-Impuls (2)">◇<small>2</small></button><button data-action="turbo" title="Turbo (3)">ϟ<small>3</small></button><button id="shopOpen" title="Hangar und Shop">▤<small>H</small></button><span class="weapon">WAFFE <b id="weaponName">PULS-LASER</b><br><small>DOPPELKLICK: ZIEL ANGRIFF · RECHTSKLICK / LEERTASTE: SCHUSS · 4 KANONE · 5 PLASMA · 6 PULS</small></span></div>
 <div class="chat panel"><div class="panel-heading">◈ GLOBAL CHAT</div><div id="chatLog"></div><form id="chatForm"><input id="chatInput" maxlength="180" placeholder="Nachricht schreiben…"><button>↗</button></form></div>
 <div class="online panel"><b>SEKTOR-PILOTEN</b><div id="onlineList">Verbindung wird hergestellt …</div></div>
 <div class="reticle" id="reticle"></div>
 <div id="notice"></div>
 </div>
-<div id="shop" class="overlay" hidden><div class="shopbox"><button class="close" id="shopClose">×</button><div class="eyebrow">HANGAR & TECH-LAB</div><h2>Flotte ausrüsten</h2><div id="shipList" class="shopgrid"></div><h3>Begleitdrohnen</h3><div class="drone-shop"><div class="drone-icon">✥ ✥ ✥ ✥ ✥ ✥ ✥ ✥</div><div><strong>Guardian-Drohnen</strong><p id="droneInfo">0 / 8 Begleitdrohnen</p><small>Jede gekaufte Drohne kreist um dein Schiff und feuert beim Angriff mit.</small></div><button id="buyDrone">Drohne kaufen</button></div><h3>Ausrüstung</h3><div class="upgrades">
-<button data-upgrade="damage">Waffen-Kalibrierung <span>150+ Credits</span></button><button data-upgrade="shield">Schildtechnik <span>150+ Credits</span></button><button data-upgrade="cannon">Schwere Kanone <span>500 Credits</span></button></div><p class="tiny">Upgrades und Käufe werden auf dem Server geprüft und im Spielstand gespeichert.</p></div></div>
-<script src="/client.js"></script></body></html>
+<div id="shop" class="overlay" hidden><div class="shopbox"><button class="close" id="shopClose">×</button><div class="eyebrow">NEBULA FRONTIER · GALACTIC MARKET</div><h2>Hangar & Weltraum-Shop</h2>
+<div class="market-tabs" id="marketTabs">
+<button data-category="premium">💎 Uridium</button><button data-category="ammo" class="active">⚡ Munition</button><button data-category="resources">◆ Ressourcen</button><button data-category="boosters">✦ Booster</button><button data-category="rockets">➤ Raketen</button><button data-category="weapons">✹ Waffen</button><button data-category="equipment">▣ Ausrüstung</button><button data-category="ships">🚀 Schiffe</button><button data-category="drones">✥ Drohnen</button>
+</div><div class="market-wallet">Guthaben: <b id="marketCredits">0</b> Credits · <b id="marketUridium">0</b> 💎 Uridium <span id="marketStatus">Käufe werden serverseitig geprüft</span></div>
+<div id="marketItems" class="market-grid"></div><div id="marketInventory" class="market-inventory"></div>
+<div id="legacyHangar"><div id="shipList" class="shopgrid"></div><h3>Begleitdrohnen</h3><div class="drone-shop"><div class="drone-icon">✥ ✥ ✥ ✥ ✥ ✥ ✥ ✥</div><div><strong>Guardian-Drohnen</strong><p id="droneInfo">0 / 8 Begleitdrohnen</p><small>Jede gekaufte Drohne kreist um dein Schiff und feuert beim Angriff mit.</small></div><button id="buyDrone">Drohne kaufen</button></div><h3>Ausrüstung</h3><div class="upgrades">
+<button data-upgrade="damage">Waffen-Kalibrierung <span>150+ Credits</span></button><button data-upgrade="shield">Schildtechnik <span>150+ Credits</span></button><button data-upgrade="armor">Panzerplatten <span>200+ Credits</span></button>
+<button data-upgrade="drone">Drohnenlaser <span>250+ Credits</span></button>
+<button data-upgrade="cannon">Schwere Kanone <span>500 Credits</span></button>
+<button data-upgrade="plasma">Plasma-Laser <span>1.300 Credits</span></button></div><p class="tiny">Upgrades und Käufe werden auf dem Server geprüft und im Spielstand gespeichert.</p></div></div></div>
+<script src="/launcher-v27.js"></script><script src="/install-client.js"></script><script src="/nebula-engine.js"></script><script src="/client.js"></script><div id="portalHelp">3 FRAKTIONEN · 27 MAPS · Zu den leuchtenden Portalen fliegen · <strong>E</strong> zum Springen</div></body></html>

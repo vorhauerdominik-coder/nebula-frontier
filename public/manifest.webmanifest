@@ -1,0 +1,19 @@
+{
+  "id": "/",
+  "name": "Nebula Frontier",
+  "short_name": "Nebula Frontier",
+  "description": "Nebula Frontier Multiplayer Space MMO",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#071426",
+  "theme_color": "#081a31",
+  "icons": [
+    {
+      "src": "/client-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

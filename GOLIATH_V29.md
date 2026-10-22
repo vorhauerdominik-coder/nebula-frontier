@@ -1,0 +1,1 @@
+Goliath V29: Freigegebenes Nutzerbild als transparentes PNG in public/assets/ships/goliath.png; im Hangar und Canvas verwendet. Preis 90.000 Uridium, 356.000 HP, Nano-Hülle als Metadatum, Tempo 300, 15 Laser-/Generatorplätze als Metadaten. Nano-Hüllenmechanik und Slot-Limits sind noch nicht implementiert. Hinweis: sehr hohe HP gegenüber bisheriger Spielbalance.
