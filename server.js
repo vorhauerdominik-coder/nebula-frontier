@@ -307,7 +307,7 @@ function makeNpc(map) {
   const hp=55+sector*18+(kind==="sentinel"?95:0);
   npcs.set(id, { id, map, x: Math.random()*m.width, y: Math.random()*m.height, hp, maxHp:hp, shield:Math.round(hp*.45), maxShield:Math.round(hp*.45), faction: bossGuard?"Rogue":"NPC", kind, damage:5+sector*3, reward:15+sector*12, fire: 1+Math.random()*2, target:null });
 }
-for (const map of Object.keys(MAPS)) for (let i=0;i=((/^.x[18]$/.test(map))?0:map==="z3"?10:map.startsWith("z")?9:10);i++) makeNpc(map);
+for (const map of Object.keys(MAPS)) for (let i=0;i<((/^.x[18]$/.test(map))?0:map==="z3"?10:map.startsWith("z")?9:10);i++) makeNpc(map);
 function profileFor(ws) { const s=sessions.get(ws); return s && s.profile; }
 function sendError(ws, text) { send(ws, { type: "error", text }); }
 function saveSession(s) { if (s && s.profile) { const p=s.profile; if (db[p.username]) db[p.username].profile=p; } }
